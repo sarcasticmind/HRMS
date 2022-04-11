@@ -1,0 +1,15 @@
+.cont{
+  background-color: white;
+  padding: 2%;
+ margin-bottom: 30px;
+ margin-top: 30px;
+ width: 75vw;
+}
+
+a.btn{
+  margin-top: 20px;
+}
+
+img{
+  width: 50px;
+}

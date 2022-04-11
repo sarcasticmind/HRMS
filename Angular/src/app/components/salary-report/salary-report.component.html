@@ -1,0 +1,59 @@
+<div class="cont">
+  <strong style="font-size: 25px; color: rgb(46, 18, 18)">Salary Report</strong>
+  <hr />
+  <div class="container mt-5 mb-5">
+    <div class="dets">
+      <div class="form-group mb-2">
+        <label class="form-label">Month</label> &nbsp;
+        <select name="EmpName" [(ngModel)]="month">
+          <option
+            id=""
+            *ngFor="let mon of months"
+            [value]="months.indexOf(mon)"
+          >
+            {{ mon }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group mb-2">
+        <label class="form-label">Year</label> &nbsp;
+        <input name="year" [(ngModel)]="year" type="number" />
+      </div>
+      <button id="calc" class="btn btn-primary" type="submit" (click)="calc()">
+        Calculate
+      </button>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Employee salary</th>
+          <th scope="col">Attend days</th>
+          <th scope="col">Absent days</th>
+          <th scope="col">Overtime</th>
+          <th scope="col">Deduction</th>
+          <th scope="col">Final Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let report of reports">
+          <tr>
+            <td>{{ report.name }}</td>
+            <td>{{ report.salary }}</td>
+            <td>{{ report.numberOfAttendingDays }}</td>
+            <td>{{ report.numberOfAbsanceDays }}</td>
+            <td>{{ report.extraInhours | number: "1.0-0" }}</td>
+            <td>{{ report.penalityInhours | number: "1.0-0" }}</td>
+            <td>{{ report.finalSalary | number: "1.0-0" }}</td>
+            <td class="d-flex">
+              <button class="btn btn-outline-secondary" (click)="goAttend(report.name)">
+                Details
+              </button> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+              <span id="print" (click)="print()"><i class="fa fa-print" aria-hidden="true"></i></span>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

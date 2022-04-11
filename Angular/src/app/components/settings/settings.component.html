@@ -1,0 +1,117 @@
+<span>General Settings</span>
+<div class="cont">
+  <br />
+  <form #form="ngForm" [formGroup]="setValidation">
+    <!-- ************ extra ***************  -->
+    <div class="form-group mb-2">
+      <label class="form-label">Extra Hour</label>
+      <input
+        [(ngModel)]="salService.formData.extrahour"
+        type="number"
+        class="form-control form-control-lg"
+        formControlName="extrahour"
+      />
+    </div>
+    <small class="form-text text-muted"
+    >enter a value between 1 and 5<br />
+  </small>
+    <div
+      class="form-text text-danger"
+      *ngIf="setValidation.controls['extrahour'].errors"
+    >
+      {{ setValidation.controls["extrahour"].errors | jsonstring }} error
+    </div>
+    <br />
+    <!-- ************ penality ***************  -->
+    <div class="form-group mb-2">
+      <label class="form-label">Discount</label>
+      <input
+        [(ngModel)]="salService.formData.penalityhour"
+        type="number"
+        class="form-control form-control-lg"
+        formControlName="penalityhour"
+      />
+    </div>
+    <small class="form-text text-muted"
+    >enter a value between 1 and 5<br />
+  </small>
+    <div
+      class="form-text text-danger"
+      *ngIf="setValidation.controls['penalityhour'].errors"
+    >
+      {{ setValidation.controls["penalityhour"].errors | jsonstring }} error
+    </div>
+    <br />
+    <hr />
+    <label>Choose weekly holidays:-</label> <br>
+    <small class="form-text text-muted"
+    >select at least one day
+  </small>
+    <br />
+   <br>
+    <!-- *****************Day1******************** -->
+    <div class="form-group mb-2">
+      <label class="form-label">Day1</label> &nbsp;
+      <select
+        formControlName="weekend1"
+        [(ngModel)]="weekService.formData.weekend1"
+      >
+        <option id="" *ngFor="let day of days" [value]="day">
+          {{ day }}
+        </option>
+      </select>
+    </div>
+    <div
+      class="form-text text-danger"
+      *ngIf="setValidation.controls['weekend1'].errors"
+    >
+      {{ setValidation.controls["weekend1"].errors | jsonstring }} error
+    </div>
+    <!-- *******************Day2****************** -->
+    <div class="form-group mb-2">
+      <label class="form-label">Day2</label> &nbsp;
+      <select
+        name="weekend2"
+        [(ngModel)]="weekService.formData.weekend2"
+        [ngModelOptions]="{standalone: true}"
+      >
+        <option id="" *ngFor="let day of days" [value]="day">
+          {{ day }}
+        </option>
+      </select>
+    </div>
+    <br />
+    <br />
+    <button
+      [disabled]="!setValidation.valid"
+      class="btn btn-primary"
+      type="submit"
+      (click)="onSubmit()"
+    >
+      Save
+    </button>
+  </form>
+  <br /><br />
+</div>
+
+<!-- <input type="checkbox" id="sat" name="sat" value="Bike" />
+ &nbsp;
+  <label for="sat"> Saturday</label>
+ <br>
+ <input type="checkbox" id="sun" name="sun" value="Car" /> &nbsp;
+  <label for="sun"> Sunday</label>
+  <br>
+  <input type="checkbox" id="mon" name="mon" value="Boat" /> &nbsp;
+  <label for="mon"> Monday</label>
+  <br>
+  <input type="checkbox" id="tue" name="tue" value="Boat" /> &nbsp;
+  <label for="tue"> Tuesday</label>
+  <br>
+  <input type="checkbox" id="wed" name="wed" value="Boat" /> &nbsp;
+  <label for="wed"> Wednesday</label>
+  <br>
+  <input type="checkbox" id="thu" name="thu" value="Boat" /> &nbsp;
+  <label for="thu"> Thursday</label>
+  <br>
+  <input type="checkbox" id="fri" name="fri" value="Boat" /> &nbsp;
+  <label for="fri"> Friday</label>-->

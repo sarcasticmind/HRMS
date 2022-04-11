@@ -1,0 +1,30 @@
+<div class="cont">
+  <div class="container mt-5 mb-5">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let holiday of holidays">
+          <td>{{ holiday.id }}</td>
+          <td>{{ holiday.name }}</td>
+          <td>{{ holiday.date | date: "mediumDate" }}</td>
+          <td>
+            <button class="btn btn-secondary" (click)="getData(holiday)">
+              Edit
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="delete(holiday.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

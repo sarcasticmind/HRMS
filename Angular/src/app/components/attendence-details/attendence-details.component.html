@@ -1,0 +1,61 @@
+<a class="btn btn-outline-danger" href="/add-attend">Add Attendence</a>
+
+<div class="cont">
+  <strong style="font-size: 25px; color: rgb(46, 18, 18)"
+    >Attendence Report</strong
+  >
+  <hr />
+  <div class="container mt-5 mb-5">
+    <div class="dets">
+      <div class="form-group mb-2">
+        <label class="form-label">Employee</label> &nbsp;
+        <select name="empName" [(ngModel)]="empName">
+          <option value="">--Select Employee--</option>
+          <option id="" *ngFor="let emp of employees" [value]="emp.name">
+            {{ emp.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group mb-2">
+        <label class="form-label">From</label> &nbsp;
+        <input type="date" [(ngModel)]="start" name="start" />
+      </div>
+      <div class="form-group mb-2">
+        <label class="form-label">To</label> &nbsp;
+        <input name="end" [(ngModel)]="end" type="date" />
+      </div>
+      <button id="calc" class="btn btn-primary" type="submit" (click)="show()">
+        Show
+      </button>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Checkin</th>
+          <th scope="col">Checkout</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let attend of attendences">
+          <tr>
+            <td>{{ attend.day | date: "mediumDate" }}</td>
+            <td>{{ attend.emp.name }}</td>
+            <td>{{ attend.attendingTime }}</td>
+            <td>{{ attend.leavingTime }}</td>
+            <td>
+              <button
+                routerLink="/add-attend"
+                class="btn btn-secondary"
+                (click)="getData(attend)"
+              >
+                Edit
+              </button>
+            </td>
+          </tr></ng-container
+        >
+      </tbody>
+    </table>
+  </div>
+</div>

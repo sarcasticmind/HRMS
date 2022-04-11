@@ -1,0 +1,51 @@
+<div class="cont">
+  <app-slider></app-slider>
+
+  <div class="deals col-12 col-md-12 col-lg-12">
+    <span id="active"
+      ><span id="status"></span>Recent Activity
+      <button id="btn" routerLink="/add-attend" class="btn btn-outline-danger">
+        Add new attendence
+      </button></span
+    >
+    <div class="show">
+      <label for="count">Show</label> &nbsp;
+      <select name="count" [(ngModel)]="count" id="">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <div class="container text-center mt-5 mb-5">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">Day</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Checkin</th>
+            <th scope="col">CheckOut</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container
+            *ngFor="let attendence of attendences.reverse().slice(0, count)"
+          >
+            <tr>
+              <td>
+                <span class="id">#{{ attendence.emp.id }}</span>
+              </td>
+              <td class="ro">{{ attendence.day | date: "mediumDate" }}</td>
+              <td class="ro">{{ attendence.emp.name }}</td>
+              <td class="ro">{{ attendence.attendingTime }}</td>
+              <td class="ro">{{ attendence.leavingTime }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

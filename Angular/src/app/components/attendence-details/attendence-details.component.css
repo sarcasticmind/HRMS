@@ -1,0 +1,25 @@
+.cont{
+  background-color: white;
+  padding: 5%;
+  /* padding-top: 30px; */
+  margin-left: 10%;
+  margin-right: 10%;
+ margin-bottom: 30px;
+ margin-top: 30px;
+}
+
+.dets{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+#calc{
+  max-height: 40px;
+  margin-top: 25px;
+}
+
+a.btn{
+  margin-top: 20px;
+  margin-left: 110px;
+}

@@ -1,0 +1,26 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+  background-color: #f3f4f9;
+}
+html {
+  scroll-behavior: smooth;
+}
+.holder{
+  /* display: inline-block; */
+  margin-top: 0px;
+  flex-wrap: nowrap;
+}
+#navbr{
+width: 78vw;
+position: relative;
+left: 20vw;
+}
+.main{
+  width: 70vw;
+  margin-left: 22vw;
+  margin-right: 2vw;
+}
+

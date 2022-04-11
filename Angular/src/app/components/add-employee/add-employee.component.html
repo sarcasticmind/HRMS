@@ -1,0 +1,309 @@
+<div class="cont">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12 mt-5 mb-5">
+        <form #form="ngForm" [formGroup]="empValidation">
+          <div class="info">
+            <div class="personal">
+              <i class="fa fa-user"></i> Personal Details
+              <hr />
+              <input type="hidden" name="id" [value]="empService.formData.id" />
+
+              <!-- ************ name ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Name</label>
+                <input
+                  [(ngModel)]="empService.formData.name"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="name"
+                  placeholder="can't be less than 3 charchters"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.name.errors"
+              >
+                {{ empValidation.controls.name.errors | jsonstring }} error
+              </div>
+              <div class="text-danger">{{nameErrorMsg}}</div>
+              <!-- ************ address ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Address</label>
+                <input
+                  [(ngModel)]="empService.formData.address"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="address"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.address.errors"
+              >
+                {{ empValidation.controls.address.errors | jsonstring }} error
+              </div>
+
+              <!-- ************ Nationality ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Nationality</label>
+                <input
+                  [(ngModel)]="empService.formData.nationality"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="nationality"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.nationality.errors"
+              >
+                {{
+                  empValidation.controls.nationality.errors | jsonstring
+                }}
+                error
+              </div>
+              <!-- ************ National ID ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">National ID</label>
+                <input
+                  [(ngModel)]="empService.formData.nationalId"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="nationalId"
+                />
+              </div>
+              <small class="form-text text-muted"
+              >enter a valid Egyptian national ID<br />
+            </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.nationalId.errors"
+              >
+                {{
+                  empValidation.controls.nationalId.errors | jsonstring
+                }}
+                error
+              </div>
+
+              <!-- ************ Phone number ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Phone number</label>
+                <input
+                  [(ngModel)]="empService.formData.phoneNumber"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="phone"
+                />
+              </div>
+              <small class="form-text text-muted"
+              >enter a valid Egyptian mobile phone<br />
+            </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.phone.errors"
+              >
+                {{ empValidation.controls.phone.errors | jsonstring }} error
+              </div>
+              <div class="text-danger">{{phoneErrorMsg}}</div>
+              <!-- ************ DOB ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Date of birth</label>
+                <input
+                  [(ngModel)]="empService.formData.dateOfBirth"
+                  type="date"
+                  class="form-control form-control-lg"
+                  formControlName="dob"
+                />
+              </div>
+              <small class="form-text text-muted"
+                >The employee can't be younger than 20 years old<br />
+              </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.dob.errors"
+              >
+                {{ empValidation.controls.dob.errors | jsonstring }} error
+              </div>
+              <div class="form-text text-danger">{{ contractErrorMsg }}</div>
+              <!-- ************ Gender ***************  -->
+
+              <div>
+                <p>Gender</p>
+                <input
+                  [(ngModel)]="empService.formData.gender"
+                  type="radio"
+                  id="male"
+                  formControlName="gender"
+                  value="m"
+                />
+                &nbsp; <label for="male">Male</label> <br />
+                <input
+                  [(ngModel)]="empService.formData.gender"
+                  type="radio"
+                  id="female"
+                  formControlName="gender"
+                  value="f"
+                />
+                &nbsp;
+                <label for="female">Female</label>
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.gender.errors"
+              >
+                {{ empValidation.controls.gender.errors | jsonstring }} error
+              </div>
+            </div>
+
+            <!-- ************ contract ***************  -->
+
+            <div class="other">
+              <i class="fa fa-book"></i> Other Details
+              <hr />
+              <div class="form-group mb-2">
+                <label class="form-label">Contract date</label>
+                <input
+                  [(ngModel)]="empService.formData.dateOfContract"
+                  type="date"
+                  class="form-control form-control-lg"
+                  formControlName="contract"
+                />
+              </div>
+              <small class="form-text text-muted"
+                >contract date must come after Jan 1st 2008<br />
+              </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.contract.errors"
+              >
+                {{ empValidation.controls.contract.errors | jsonstring }} error
+              </div>
+
+              <!-- ************ Salary ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Salary</label>
+                <input
+                  [(ngModel)]="empService.formData.salary"
+                  type="number"
+                  class="form-control form-control-lg"
+                  formControlName="salary"
+                />
+              </div>
+              <small class="form-text text-muted"
+              >can't be less than 6000 L.E<br />
+            </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.salary.errors"
+              >
+                {{ empValidation.controls.salary.errors | jsonstring }} error
+              </div>
+              <!-- ************ extra ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Extra Hour</label>
+                <input
+                  [(ngModel)]="empService.formData.extraHour"
+                  type="number"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="form-control form-control-lg"
+                  name="extra"
+                />
+              </div>
+              <small class="form-text text-muted"
+                >The value will be taken from the general settings if you
+                entered no value<br />
+              </small>
+
+              <!-- ************ penality ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Penalty</label>
+                <input
+                  [ngModelOptions]="{ standalone: true }"
+                  [(ngModel)]="empService.formData.penaltyHour"
+                  type="number"
+                  class="form-control form-control-lg"
+                  name="penalty"
+                />
+              </div>
+              <small class="form-text text-muted"
+                >The value will be taken from the general settings if you
+                entered no value<br />
+              </small>
+
+
+              <!-- ************ checkin ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">check in</label>
+                <input
+                  class="form-control form-control-lg"
+                  formControlName="checkin"
+                  type="time"
+                  [(ngModel)]="empService.formData.attendingTime"
+                />
+              </div>
+              <small class="form-text text-muted"
+                >enter a value between 07:00 am and 12:00 am<br />
+              </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.checkin.errors"
+              >
+                {{ empValidation.controls.checkin.errors | jsonstring }} error
+              </div>
+              <!-- ************ checkout ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">checkout</label>
+                <input
+                  [(ngModel)]="empService.formData.leavingTime"
+                  type="time"
+                  class="form-control form-control-lg"
+                  formControlName="checkout"
+                />
+              </div>
+              <small class="form-text text-muted"
+              >enter a value between 12:00 am and 20:00 pm<br />
+            </small>
+              <small class="form-text text-muted"
+                >Can't be after 08:00 pm, and must be after checkin<br />
+              </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="empValidation.controls.checkout.errors"
+              >
+                {{ empValidation.controls.checkout.errors | jsonstring }} error
+              </div>
+              <!-- **************************************** -->
+            </div>
+          </div>
+          <br />
+          <div class="form-group mb-2">
+            <button
+              [disabled]="!empValidation.valid"
+              class="btn btn-primary"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+            &nbsp;
+            <button class="btn btn-danger" routerLink="/employee">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.sidebar {
+  position: fixed;
+  width: 20vw;
+  border: 2px solid rgb(250, 213, 213);
+  /* margin-right: 200px; */
+  height: 100%;
+  margin-bottom: 20px;
+  margin-top: 0;
+  background-image: url(https://arborcollege.com/wp-content/uploads/sidebar-background.png);
+  background-repeat: no-repeat;
+}
+ul {
+  padding: 5px;
+}
+#logo {
+  display: block;
+  margin-top: 2vh;
+  margin-right: 25%;
+  margin-left: 25%;
+  font-size: 30px;
+  color: brown;
+  cursor: pointer;
+  font-family: "Brush Script MT ", cursive;
+}
+a {
+  text-decoration: none;
+  display: block;
+  width: 12vw;
+  font-size: 1.2vw;
+  height: fit-content;
+  padding: 10px;
+  line-height: 20px;
+  margin: 20px 0 30px 20px;
+  border: 1px solid black;
+  color: white;
+  background-color: rgb(165, 42, 42);
+  display: flex;
+  border-radius: 10px;
+}
+a:hover {
+  background-color: rgb(58, 17, 17);
+}
+@media (max-width: 776px) {
+  .sidebar {
+    display: none;
+  }
+}
+li {
+  text-decoration: none;
+  list-style: none;
+}
+.activeClass {
+  background-color: rgb(58, 17, 17);
+  border-bottom: 2px solid var(--main-color) !important;
+}

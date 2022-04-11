@@ -1,0 +1,20 @@
+
+.cont input[type="number"]{
+width: 25%;
+}
+span{
+  display: block;
+  font-size: 30px;
+  color: rgb(90, 25, 25);
+  margin-left: 10%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.cont{
+  background-color: white;
+  padding: 10px;
+  padding-left: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+ margin-bottom: 30px;
+}

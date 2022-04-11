@@ -1,0 +1,25 @@
+.cont {
+  background-color: white;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  margin-left: 10%;
+  padding: 10px;
+  margin-right: 10%;
+}
+button[type="submit"]{
+margin-top: 30px;
+margin-bottom: 0;
+margin-left: 80%;
+margin-right: 10%;
+}
+span{
+  font-weight: bolder;
+  font-size: 20px;
+  display: block;
+  margin: 30px;
+}
+.info{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

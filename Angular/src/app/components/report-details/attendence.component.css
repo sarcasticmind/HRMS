@@ -1,0 +1,45 @@
+.cont{
+  background-color: white;
+  padding: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+ margin-bottom: 30px;
+ margin-top: 30px;
+}
+.absent{
+  margin-left: 20px;
+  display: flex;
+}
+.dets{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+input,select{
+  width: 80px;
+  height: 30px;
+  font-weight: bold;
+}
+input:hover,select:hover{
+  color: brown;
+}
+a.btn{
+  margin-top: 20px;
+}
+table{
+  text-align: center;
+}
+.date>.d{
+  display: flex;
+  margin-right: 20px;
+}
+#print{
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(75, 40, 95);
+  line-height: 100%;
+}
+#print:hover{
+  color: black;
+}

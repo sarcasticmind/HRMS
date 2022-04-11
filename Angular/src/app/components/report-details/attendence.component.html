@@ -1,0 +1,79 @@
+<div class="cont">
+  <div class="container mt-5 mb-5">
+    <div class="dets">
+      <div class="date">
+        <div class="d form-group mb-2">
+          <label class="form-label">Month</label> &nbsp;
+          <select name="EmpName" [(ngModel)]="month">
+            <option
+              id=""
+              *ngFor="let mon of months"
+              [value]="months.indexOf(mon)"
+            >
+              {{ mon }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <label class="form-label">Year</label> &nbsp;
+        <input name="year" [(ngModel)]="year" type="number" />
+      </div>
+
+      <div class="absent">
+        <label for="s"> Employee</label> &nbsp;&nbsp;
+        <select name="EmpName" id="s" [(ngModel)]="EmpName">
+          <!-- <option value="">--Select Employee--</option> -->
+          <option
+            id=""
+            *ngFor="let EmpName of employees"
+            [value]="EmpName.name"
+          >
+            {{ EmpName.name }}
+          </option>
+        </select>
+      </div>
+      <span id="print" (click)="print()"><i class="fa fa-print" aria-hidden="true"></i></span>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Checkin</th>
+          <th scope="col">CheckOut</th>
+          <th scope="col">Checkin comment</th>
+          <th scope="col">Checkout comment</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let attendence of attendences">
+          <ng-container *ngIf="attendence.emp.name == EmpName">
+            <tr
+              *ngIf="
+                +attendence.day.substring(5, 7) == month &&
+                attendence.day.substring(0, 4) == year
+              "
+            >
+              <td>{{ attendence.day | date: "mediumDate" }}</td>
+              <td>{{ attendence.attendingTime }}</td>
+              <td>{{ attendence.leavingTime }}</td>
+              <td *ngIf="attendence.attendingTime != null">
+                {{
+                  +attendence.emp.attendingTime.substring(0, 2) -
+                    +attendence.attendingTime.substring(0, 2)
+                }}
+              </td>
+              <td *ngIf="attendence.attendingTime != null">
+                {{
+                  +attendence.leavingTime.substring(0, 2) -
+                    +attendence.emp.leavingTime.substring(0, 2)
+                }}
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

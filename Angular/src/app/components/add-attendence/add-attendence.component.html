@@ -1,0 +1,97 @@
+<div class="cont">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-12 col-12 mt-5 mb-5">
+        <form #form="ngForm" [formGroup]="attValidation">
+          <input type="hidden" name="id" [value]="attService.formData.id" />
+
+          <!-- **************name******************** -->
+          <div class="form-group mb-2">
+            <label class="form-label">Select Employee</label> &nbsp;
+            <select
+              formControlName="empName"
+              [(ngModel)]="attService.formData.empId"
+            >
+              <option
+                id=""
+                *ngFor="let EmpName of employees"
+                [value]="EmpName.id"
+              >
+                {{ EmpName.name }}
+              </option>
+            </select>
+          </div>
+          <div
+          class="form-text text-danger"
+          *ngIf="attValidation.controls['empName'].errors"
+        >
+          Required field
+        </div>
+          <!-- **************Day******************** -->
+
+          <div class="form-group mb-2">
+            <label class="form-label">Day</label>
+            <input
+              [(ngModel)]="attService.formData.day"
+              type="date"
+              class="form-control form-control-lg"
+              formControlName="date"
+            />
+          </div>
+          <div
+          class="form-text text-danger"
+          *ngIf="attValidation.controls['date'].errors"
+        >
+          Required field
+        </div>
+        <div class="form-text text-danger">{{dateErrorMsg}}</div>
+        <div class="form-text text-danger">{{contractErrorMsg}}</div>
+        <div class="form-text text-danger">{{attendErrorMsg}}</div>
+
+          <!-- **************checkin******************** -->
+          <div class="form-group mb-2">
+            <label class="form-label">check in</label>
+            <input
+              class="form-control form-control-lg"
+              formControlName="checkin"
+              type="time"
+              [(ngModel)]="attService.formData.attendingTime"
+            />
+          </div>
+          <div
+          class="form-text text-danger"
+          *ngIf="attValidation.controls['checkin'].errors"
+        >
+          {{ attValidation.controls["checkin"].errors | jsonstring }} error
+        </div>
+          <!-- **************checkout******************** -->
+          <div class="form-group mb-2">
+            <label class="form-label">checkout</label>
+            <input
+              [(ngModel)]="attService.formData.leavingTime"
+              type="time"
+              class="form-control form-control-lg"
+              formControlName="checkout"
+            />
+          </div>
+          <div
+          class="form-text text-danger"
+          *ngIf="attValidation.controls['checkout'].errors"
+        >
+          {{ attValidation.controls["checkout"].errors | jsonstring }} error
+        </div>
+          <!-- **************submit******************** -->
+
+          <div class="form-group mb-2">
+
+      <button [disabled]="!attValidation.valid" class="btn btn-primary" type="submit" (click)="onSubmit()">
+              Submit
+            </button>
+            &nbsp; &nbsp;
+            <button routerLink="/" class="btn btn-danger">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
